@@ -1,5 +1,7 @@
 <template>
-  <input :type="type">
+  <div>
+    <input :type="type">
+  </div>
 </template>
 
 <script>

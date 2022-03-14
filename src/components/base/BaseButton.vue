@@ -1,5 +1,7 @@
 <template>
-  <input type="button" :value="msg">
+  <div>
+    <input class="baseButton" type="button" :value="msg">
+  </div>
 </template>
 
 <script>
@@ -12,5 +14,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .baseButton{
+    background: aquamarine;
+  }
 </style>

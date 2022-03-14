@@ -1,11 +1,9 @@
 <template>
-  <home-view></home-view>
+  <router-view></router-view>
 </template>
 
 <script>
-import HomeView from "@/components/HomeView";
-
-
+import HomeView from "@/views/HomeView";
 
 export default {
     name: "App",
