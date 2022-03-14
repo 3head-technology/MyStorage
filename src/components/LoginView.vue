@@ -1,10 +1,10 @@
 <template>
-$END$
+  <p>Hello world</p>
 </template>
 
 <script>
 export default {
-name: "Login"
+  name: "LoginView"
 }
 </script>
 
