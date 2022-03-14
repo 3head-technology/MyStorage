@@ -8,11 +8,11 @@ import HomeView from "@/components/HomeView";
 
 
 export default {
-  name: 'App',
-  components: {
-    HomeView,
-  }
-}
+    name: "App",
+    components: {
+        HomeView,
+    },
+};
 </script>
 
 <style>

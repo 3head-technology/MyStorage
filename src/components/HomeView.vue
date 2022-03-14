@@ -5,9 +5,9 @@
 <script>
 import BaseButton from "@/components/base/BaseButton";
 export default {
-  name: "HomeView",
-  components: {BaseButton}
-}
+    name: "HomeView",
+    components: { BaseButton, },
+};
 </script>
 
 <style scoped>

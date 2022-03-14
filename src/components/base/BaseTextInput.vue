@@ -1,12 +1,12 @@
 <template>
-  <input type="button" :value="msg">
+  <input :type="type">
 </template>
 
 <script>
 export default {
-    name: "BaseButton",
+    name: "BaseTextInput",
     props: {
-        msg: String,
+        type: String,
     },
 };
 </script>
