@@ -5,7 +5,7 @@
                 <div class="logo-container">
                     <img src="../img/3head-logo.png" alt="3head-logo">
                     <h1>3Head Technologies</h1>
-                    <h2>Welcome!</h2>
+                    <h2>Welcome!!</h2>
                 </div>
                 <p>Log in</p>
                 <div class="input-container">
