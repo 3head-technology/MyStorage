@@ -5,7 +5,7 @@
             <h1>Drag and drop your files here!</h1>
             <h2>File supported: .pdf .jpeg .jpg .png</h2>
             <p>or</p>
-            <input multiple id="files" type="file" style="display: none;" @change="fileUploded">
+            <input multiple id="files" type="file" style="display: none;" @change="fileUploaded">
             <label for="files" class="btn-input">Browse files</label>
         </div>
         <div class="file-container" v-if="files.length">
@@ -32,16 +32,13 @@ export default {
         };
     },
     computed: {
-        filesArray () {
-            return Array.from(this.files);
-        },
     },
     methods: {
-        fileUploded (event) {
-            this.files = event.target.files;
+        fileUploaded (event) {
+            this.files = [ ...this.files, ...event.target.files, ];
         },
         dragFile (event) {
-            this.files = event.dataTransfer.files;
+            this.files = [ ...this.files, ...event.dataTransfer.files, ];
         },
     },
 };
