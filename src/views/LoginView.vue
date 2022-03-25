@@ -9,9 +9,9 @@
                 </div>
                 <p>Log in</p>
                 <div class="input-container">
-                    <base-text-input type="text" placeholder="username"></base-text-input>
-                    <base-text-input type="password" placeholder="password"></base-text-input>
-                    <base-button @click="toLogin" msg="Sign In"></base-button>
+                    <base-text-input v-model="username" type="text" placeholder="username"></base-text-input>
+                    <base-text-input v-model="password" type="password" placeholder="password"></base-text-input>
+                    <base-button @click="login" msg="Sign In"></base-button>
                 </div>
             </div>
         </div>
@@ -20,16 +20,34 @@
 <script>
 import BaseTextInput from "@/components/base/BaseTextInput";
 import BaseButton from "@/components/base/BaseButton";
+import { server, } from "@/server";
+import { setAuthenticationToken, } from "@/utilities/authenticationUtilities";
 
 export default {
     name: "LoginView",
-    components: {BaseButton, BaseTextInput, },
+    components: { BaseButton, BaseTextInput, },
     data () {
-        return {username: "", };
+        return {
+            username: "",
+            password: "",
+        };
     },
     methods: {
-        toLogin () {
-            this.$router.push("/user");
+        async login () {
+            const result = await server.post("/login", {
+                username: this.username,
+                password: this.password,
+            });
+            console.log(result);
+            if (result.status === 200 && result.data) {
+                if (result.data.errorMessage) {
+                    alert(result.data.errorMessage);
+                }
+                else {
+                    setAuthenticationToken(result.data.token);
+                    await this.$router.push("/user");
+                }
+            }
         },
     },
 };

@@ -1,7 +1,8 @@
 import HomeView from "@/views/HomeView";
 import LoginView from "@/views/LoginView";
 import UserView from "@/views/UserView";
-import {createRouter, createWebHistory, } from "vue-router";
+import { createRouter, createWebHistory, } from "vue-router";
+import {isLogged, } from "@/utilities/authenticationUtilities";
 
 const routes = [
     {
@@ -18,4 +19,11 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 });
+
+router.beforeEach((to, from) => {
+    if (!isLogged() && to.name !== LoginView.name && to.name !== HomeView.name) {
+        return { name: LoginView.name, };
+    }
+});
+
 export default router;
